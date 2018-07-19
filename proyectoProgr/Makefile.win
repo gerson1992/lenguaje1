@@ -1,0 +1,49 @@
+# Project: sistema
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = sitema.o seguridad.o menu.o mensajes.o reconoserActivo.o reconoserPasivo.o reconoserPatrimonio.o estSituacionFinanciero.o
+LINKOBJ  = sitema.o seguridad.o menu.o mensajes.o reconoserActivo.o reconoserPasivo.o reconoserPatrimonio.o estSituacionFinanciero.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = sistemaContable.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+sitema.o: sitema.cpp
+	$(CPP) -c sitema.cpp -o sitema.o $(CXXFLAGS)
+
+seguridad.o: seguridad.cpp
+	$(CPP) -c seguridad.cpp -o seguridad.o $(CXXFLAGS)
+
+menu.o: menu.cpp
+	$(CPP) -c menu.cpp -o menu.o $(CXXFLAGS)
+
+mensajes.o: mensajes.cpp
+	$(CPP) -c mensajes.cpp -o mensajes.o $(CXXFLAGS)
+
+reconoserActivo.o: reconoserActivo.cpp
+	$(CPP) -c reconoserActivo.cpp -o reconoserActivo.o $(CXXFLAGS)
+
+reconoserPasivo.o: reconoserPasivo.cpp
+	$(CPP) -c reconoserPasivo.cpp -o reconoserPasivo.o $(CXXFLAGS)
+
+reconoserPatrimonio.o: reconoserPatrimonio.cpp
+	$(CPP) -c reconoserPatrimonio.cpp -o reconoserPatrimonio.o $(CXXFLAGS)
+
+estSituacionFinanciero.o: estSituacionFinanciero.cpp
+	$(CPP) -c estSituacionFinanciero.cpp -o estSituacionFinanciero.o $(CXXFLAGS)
